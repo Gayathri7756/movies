@@ -33,13 +33,13 @@ const moviesData = {
         { title: "Die Hard", image: "https://image.tmdb.org/t/p/w500/yFihWxQcmqcaBR31QM6Y8gT6aYV.jpg", category: "action" },
         { title: "Terminator 2", image: "https://image.tmdb.org/t/p/w500/5M0j0B18abtBI5gi2RhfjjurTqb.jpg", category: "action" },
         { title: "Mission Impossible", image: "https://image.tmdb.org/t/p/w500/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg", category: "action" },
-        { title: "The Raid", image: "https://image.tmdb.org/t/p/w500/fhwz79cYTdKxfOkNoal9ouLzJiJ.jpg", category: "action" },
+        { title: "The Raid", image: "https://image.tmdb.org/t/p/w500/mDQjGxMkN6XoWr6l6pFLxGmTrj5.jpg", category: "action" },
         { title: "Gladiator", image: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg", category: "action" }
     ],
     comedy: [
         { title: "The Grand Budapest Hotel", image: "https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg", category: "comedy" },
         { title: "Superbad", image: "https://image.tmdb.org/t/p/w500/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg", category: "comedy" },
-        { title: "The Hangover", image: "https://image.tmdb.org/t/p/w500/wwjcD1nH3X6xNMLvq8FYs3I8Tby.jpg", category: "comedy" },
+        { title: "The Hangover", image: "https://image.tmdb.org/t/p/w500/uluhlXhjRbRs4YyPy0N9xVjCUXx.jpg", category: "comedy" },
         { title: "Bridesmaids", image: "https://image.tmdb.org/t/p/w500/gJtA7hYsBMQ7EM3sPBMUdBfU7a0.jpg", category: "comedy" },
         { title: "Step Brothers", image: "https://image.tmdb.org/t/p/w500/wRR62XHgEGGCbr6WKtb7Y4YuGpI.jpg", category: "comedy" },
         { title: "Anchorman", image: "https://image.tmdb.org/t/p/w500/7f2CH2RvZZP6sTVe7Hhzfz0Aw0k.jpg", category: "comedy" },
