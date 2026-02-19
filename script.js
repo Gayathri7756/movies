@@ -1,49 +1,49 @@
-// Movie Data - Using placeholder images that work reliably
+// Movie Data - Using reliable placeholder.com images
 const moviesData = {
     trending: [
-        { title: "The Dark Knight", image: "https://picsum.photos/seed/dark-knight/400/600", category: "trending" },
-        { title: "Inception", image: "https://picsum.photos/seed/inception/400/600", category: "trending" },
-        { title: "Interstellar", image: "https://picsum.photos/seed/interstellar/400/600", category: "trending" },
-        { title: "The Matrix", image: "https://picsum.photos/seed/matrix/400/600", category: "trending" },
-        { title: "Pulp Fiction", image: "https://picsum.photos/seed/pulp-fiction/400/600", category: "trending" },
-        { title: "Fight Club", image: "https://picsum.photos/seed/fight-club/400/600", category: "trending" },
-        { title: "Forrest Gump", image: "https://picsum.photos/seed/forrest-gump/400/600", category: "trending" }
+        { title: "The Dark Knight", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=The+Dark+Knight", category: "trending" },
+        { title: "Inception", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Inception", category: "trending" },
+        { title: "Interstellar", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Interstellar", category: "trending" },
+        { title: "The Matrix", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=The+Matrix", category: "trending" },
+        { title: "Pulp Fiction", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Pulp+Fiction", category: "trending" },
+        { title: "Fight Club", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Fight+Club", category: "trending" },
+        { title: "Forrest Gump", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Forrest+Gump", category: "trending" }
     ],
     popular: [
-        { title: "Avengers Endgame", image: "https://picsum.photos/seed/avengers/400/600", category: "popular" },
-        { title: "Spider-Man", image: "https://picsum.photos/seed/spiderman/400/600", category: "popular" },
-        { title: "Joker", image: "https://picsum.photos/seed/joker/400/600", category: "popular" },
-        { title: "Black Panther", image: "https://picsum.photos/seed/black-panther/400/600", category: "popular" },
-        { title: "Dune", image: "https://picsum.photos/seed/dune/400/600", category: "popular" },
-        { title: "Oppenheimer", image: "https://picsum.photos/seed/oppenheimer/400/600", category: "popular" },
-        { title: "Barbie", image: "https://picsum.photos/seed/barbie/400/600", category: "popular" }
+        { title: "Avengers Endgame", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Avengers+Endgame", category: "popular" },
+        { title: "Spider-Man", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Spider-Man", category: "popular" },
+        { title: "Joker", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Joker", category: "popular" },
+        { title: "Black Panther", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Black+Panther", category: "popular" },
+        { title: "Dune", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Dune", category: "popular" },
+        { title: "Oppenheimer", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Oppenheimer", category: "popular" },
+        { title: "Barbie", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Barbie", category: "popular" }
     ],
     topRated: [
-        { title: "The Shawshank Redemption", image: "https://picsum.photos/seed/shawshank/400/600", category: "topRated" },
-        { title: "The Godfather", image: "https://picsum.photos/seed/godfather/400/600", category: "topRated" },
-        { title: "Schindler's List", image: "https://picsum.photos/seed/schindlers/400/600", category: "topRated" },
-        { title: "12 Angry Men", image: "https://picsum.photos/seed/12-angry/400/600", category: "topRated" },
-        { title: "The Green Mile", image: "https://picsum.photos/seed/green-mile/400/600", category: "topRated" },
-        { title: "Goodfellas", image: "https://picsum.photos/seed/goodfellas/400/600", category: "topRated" },
-        { title: "Casablanca", image: "https://picsum.photos/seed/casablanca/400/600", category: "topRated" }
+        { title: "The Shawshank Redemption", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Shawshank", category: "topRated" },
+        { title: "The Godfather", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=The+Godfather", category: "topRated" },
+        { title: "Schindler's List", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Schindler's+List", category: "topRated" },
+        { title: "12 Angry Men", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=12+Angry+Men", category: "topRated" },
+        { title: "The Green Mile", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=The+Green+Mile", category: "topRated" },
+        { title: "Goodfellas", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Goodfellas", category: "topRated" },
+        { title: "Casablanca", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Casablanca", category: "topRated" }
     ],
     action: [
-        { title: "Mad Max Fury Road", image: "https://picsum.photos/seed/mad-max/400/600", category: "action" },
-        { title: "John Wick", image: "https://picsum.photos/seed/john-wick/400/600", category: "action" },
-        { title: "Die Hard", image: "https://picsum.photos/seed/die-hard/400/600", category: "action" },
-        { title: "Terminator 2", image: "https://picsum.photos/seed/terminator/400/600", category: "action" },
-        { title: "Mission Impossible", image: "https://picsum.photos/seed/mission/400/600", category: "action" },
-        { title: "The Raid", image: "https://picsum.photos/seed/raid/400/600", category: "action" },
-        { title: "Gladiator", image: "https://picsum.photos/seed/gladiator/400/600", category: "action" }
+        { title: "Mad Max Fury Road", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Mad+Max", category: "action" },
+        { title: "John Wick", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=John+Wick", category: "action" },
+        { title: "Die Hard", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Die+Hard", category: "action" },
+        { title: "Terminator 2", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Terminator+2", category: "action" },
+        { title: "Mission Impossible", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Mission+Impossible", category: "action" },
+        { title: "The Raid", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=The+Raid", category: "action" },
+        { title: "Gladiator", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Gladiator", category: "action" }
     ],
     comedy: [
-        { title: "The Grand Budapest Hotel", image: "https://picsum.photos/seed/budapest/400/600", category: "comedy" },
-        { title: "Superbad", image: "https://picsum.photos/seed/superbad/400/600", category: "comedy" },
-        { title: "The Hangover", image: "https://picsum.photos/seed/hangover/400/600", category: "comedy" },
-        { title: "Bridesmaids", image: "https://picsum.photos/seed/bridesmaids/400/600", category: "comedy" },
-        { title: "Step Brothers", image: "https://picsum.photos/seed/step-brothers/400/600", category: "comedy" },
-        { title: "Anchorman", image: "https://picsum.photos/seed/anchorman/400/600", category: "comedy" },
-        { title: "Tropic Thunder", image: "https://picsum.photos/seed/tropic/400/600", category: "comedy" }
+        { title: "The Grand Budapest Hotel", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Grand+Budapest", category: "comedy" },
+        { title: "Superbad", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Superbad", category: "comedy" },
+        { title: "The Hangover", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=The+Hangover", category: "comedy" },
+        { title: "Bridesmaids", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Bridesmaids", category: "comedy" },
+        { title: "Step Brothers", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Step+Brothers", category: "comedy" },
+        { title: "Anchorman", image: "https://placehold.co/400x600/1a1a1a/ffffff?text=Anchorman", category: "comedy" },
+        { title: "Tropic Thunder", image: "https://placehold.co/400x600/2c2c2c/ffffff?text=Tropic+Thunder", category: "comedy" }
     ]
 };
 
