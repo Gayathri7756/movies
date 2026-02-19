@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Watch Movies & TV Shows</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: #141414;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e50914;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #e5e5e5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .search-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0.8) 0%,
+                rgba(0,0,0,0.4) 50%,
+                rgba(0,0,0,0.1) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 550px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-play {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btn-play:hover {
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        .btn-info {
+            background-color: rgba(109,109,110,0.7);
+            color: #fff;
+        }
+
+        .btn-info:hover {
+            background-color: rgba(109,109,110,0.5);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 0 50px 50px;
+        }
+
+        .movie-row {
+            margin-bottom: 40px;
+        }
+
+        .row-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-left: 4px;
+        }
+
+        .row-posters {
+            display: flex;
+            gap: 10px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .row-posters::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Movie Card */
+        .movie-card {
+            position: relative;
+            min-width: 200px;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.08);
+            z-index: 10;
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .movie-card:hover .movie-title {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-left {
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                height: 60vh;
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .content {
+                padding: 0 20px 30px;
+            }
+
+            .row-title {
+                font-size: 18px;
+            }
+
+            .movie-card {
+                min-width: 150px;
+                height: 225px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .movie-card {
+                min-width: 120px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <h1 class="logo">STREAMFLIX</h1>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">My List</a></li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Stranger Things</h1>
+            <p class="hero-description">
+                When a young boy vanishes, a small town uncovers a mystery involving secret experiments, 
+                terrifying supernatural forces and one strange little girl.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-play">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Play
+                </button>
+                <button class="btn btn-info">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Movie Rows -->
+    <main class="content">
+        <section class="movie-row">
+            <h2 class="row-title">Trending Now</h2>
+            <div class="row-posters" id="trending"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Popular Movies</h2>
+            <div class="row-posters" id="popular"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Top Rated</h2>
+            <div class="row-posters" id="topRated"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Action Movies</h2>
+            <div class="row-posters" id="action"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Comedy Movies</h2>
+            <div class="row-posters" id="comedy"></div>
+        </section>
+    </main>
+
+    <script>
+        // Movie Data
+        const moviesData = {
+            trending: [
+                { title: "The Dark Knight", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=The+Dark+Knight", category: "trending" },
+                { title: "Inception", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Inception", category: "trending" },
+                { title: "Interstellar", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Interstellar", category: "trending" },
+                { title: "The Matrix", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=The+Matrix", category: "trending" },
+                { title: "Pulp Fiction", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Pulp+Fiction", category: "trending" },
+                { title: "Fight Club", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Fight+Club", category: "trending" },
+                { title: "Forrest Gump", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Forrest+Gump", category: "trending" }
+            ],
+            popular: [
+                { title: "Avengers Endgame", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Avengers", category: "popular" },
+                { title: "Spider-Man", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Spider-Man", category: "popular" },
+                { title: "Joker", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Joker", category: "popular" },
+                { title: "Black Panther", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Black+Panther", category: "popular" },
+                { title: "Dune", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Dune", category: "popular" },
+                { title: "Oppenheimer", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Oppenheimer", category: "popular" },
+                { title: "Barbie", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Barbie", category: "popular" }
+            ],
+            topRated: [
+                { title: "The Shawshank Redemption", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Shawshank", category: "topRated" },
+                { title: "The Godfather", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Godfather", category: "topRated" },
+                { title: "Schindler's List", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Schindler", category: "topRated" },
+                { title: "12 Angry Men", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=12+Angry+Men", category: "topRated" },
+                { title: "The Green Mile", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Green+Mile", category: "topRated" },
+                { title: "Goodfellas", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Goodfellas", category: "topRated" },
+                { title: "Casablanca", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Casablanca", category: "topRated" }
+            ],
+            action: [
+                { title: "Mad Max Fury Road", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Mad+Max", category: "action" },
+                { title: "John Wick", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=John+Wick", category: "action" },
+                { title: "Die Hard", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Die+Hard", category: "action" },
+                { title: "Terminator 2", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Terminator+2", category: "action" },
+                { title: "Mission Impossible", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Mission", category: "action" },
+                { title: "The Raid", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=The+Raid", category: "action" },
+                { title: "Gladiator", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Gladiator", category: "action" }
+            ],
+            comedy: [
+                { title: "The Grand Budapest Hotel", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Budapest", category: "comedy" },
+                { title: "Superbad", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Superbad", category: "comedy" },
+                { title: "The Hangover", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Hangover", category: "comedy" },
+                { title: "Bridesmaids", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Bridesmaids", category: "comedy" },
+                { title: "Step Brothers", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Step+Brothers", category: "comedy" },
+                { title: "Anchorman", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Anchorman", category: "comedy" },
+                { title: "Tropic Thunder", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Tropic", category: "comedy" }
+            ]
+        };
+
+        // Create movie card element
+        function createMovieCard(movie) {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+            
+            const img = document.createElement('img');
+            img.src = movie.image;
+            img.alt = movie.title;
+            img.className = 'movie-poster';
+            img.loading = 'lazy';
+            
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'movie-title';
+            titleDiv.textContent = movie.title;
+            
+            card.appendChild(img);
+            card.appendChild(titleDiv);
+            
+            return card;
+        }
+
+        // Populate movie rows
+        function populateMovieRow(containerId, movies) {
+            const container = document.getElementById(containerId);
+            
+            movies.forEach(movie => {
+                const card = createMovieCard(movie);
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize all movie rows
+        function initializeMovieRows() {
+            populateMovieRow('trending', moviesData.trending);
+            populateMovieRow('popular', moviesData.popular);
+            populateMovieRow('topRated', moviesData.topRated);
+            populateMovieRow('action', moviesData.action);
+            populateMovieRow('comedy', moviesData.comedy);
+        }
+
+        // Navbar scroll effect
+        function handleNavbarScroll() {
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMovieRows();
+            handleNavbarScroll();
+            
+            console.log('StreamFlix loaded successfully!');
+        });
+    </script>
+</body>
+</html>
