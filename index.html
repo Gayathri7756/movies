@@ -427,17 +427,33 @@
     <script>
         // Authentication Check - Redirect to login if not authenticated
         (function checkAuth() {
-            // Check if user is logged in via sessionStorage
-            const user = sessionStorage.getItem('user');
+            // Check URL parameter for authentication token
+            const urlParams = new URLSearchParams(window.location.search);
+            const authToken = urlParams.get('auth');
+            const username = urlParams.get('user');
             
-            if (!user) {
+            // Check if user came from login with auth token
+            if (authToken === 'success' && username) {
+                // Store in localStorage for this domain
+                localStorage.setItem('authenticated', 'true');
+                localStorage.setItem('username', username);
+                
+                // Clean up URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            // Check if user is authenticated
+            const isAuthenticated = localStorage.getItem('authenticated');
+            
+            if (!isAuthenticated) {
                 // User not logged in, redirect to registration page
                 console.log('User not authenticated, redirecting to login...');
                 window.location.href = 'http://localhost:3000';
                 return;
             }
             
-            console.log('User authenticated:', JSON.parse(user).username);
+            const storedUsername = localStorage.getItem('username');
+            console.log('User authenticated:', storedUsername);
         })();
 
         // Movie Data with verified working poster images from TMDB
@@ -577,14 +593,15 @@
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             // Display username
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            if (user) {
-                document.getElementById('username-display').textContent = `Welcome, ${user.username}`;
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('username-display').textContent = `Welcome, ${username}`;
             }
 
             // Logout functionality
             document.getElementById('logout-btn').addEventListener('click', () => {
-                sessionStorage.removeItem('user');
+                localStorage.removeItem('authenticated');
+                localStorage.removeItem('username');
                 alert('Logged out successfully!');
                 window.location.href = 'http://localhost:3000/login';
             });
