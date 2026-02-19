@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Watch Movies & TV Shows</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <h1 class="logo">STREAMFLIX</h1>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">My List</a></li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Stranger Things</h1>
+            <p class="hero-description">
+                When a young boy vanishes, a small town uncovers a mystery involving secret experiments, 
+                terrifying supernatural forces and one strange little girl.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-play">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Play
+                </button>
+                <button class="btn btn-info">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Movie Rows -->
+    <main class="content">
+        <section class="movie-row">
+            <h2 class="row-title">Trending Now</h2>
+            <div class="row-posters" id="trending"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Popular Movies</h2>
+            <div class="row-posters" id="popular"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Top Rated</h2>
+            <div class="row-posters" id="topRated"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Action Movies</h2>
+            <div class="row-posters" id="action"></div>
+        </section>
+
+        <section class="movie-row">
+            <h2 class="row-title">Comedy Movies</h2>
+            <div class="row-posters" id="comedy"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
