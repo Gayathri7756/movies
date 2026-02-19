@@ -1,53 +1,71 @@
-// Movie Data with verified working poster images
+// Movie Data with verified working poster images from TMDB
 const moviesData = {
     trending: [
-        { title: "The Dark Knight", image: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "Inception", image: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "Interstellar", image: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "The Matrix", image: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "Pulp Fiction", image: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "Fight Club", image: "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg", category: "trending" },
-        { title: "Forrest Gump", image: "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg", category: "trending" }
+        { title: "Oppenheimer", image: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", category: "trending" },
+        { title: "Barbie", image: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", category: "trending" },
+        { title: "The Dark Knight", image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", category: "trending" },
+        { title: "Inception", image: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", category: "trending" },
+        { title: "Interstellar", image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", category: "trending" },
+        { title: "The Matrix", image: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", category: "trending" },
+        { title: "Avatar The Way of Water", image: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg", category: "trending" },
+        { title: "Top Gun Maverick", image: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg", category: "trending" },
+        { title: "Everything Everywhere All at Once", image: "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg", category: "trending" },
+        { title: "The Batman", image: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg", category: "trending" }
     ],
     popular: [
-        { title: "Avengers Endgame", image: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Spider-Man", image: "https://m.media-amazon.com/images/M/MV5BNzU3YWNiYTQtYTVhOC00MTMxLWE0ZDktZGJhNjYyZjZlMDI0XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Joker", image: "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Black Panther", image: "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Dune", image: "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Oppenheimer", image: "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_FMjpg_UX1000_.jpg", category: "popular" },
-        { title: "Barbie", image: "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg", category: "popular" }
+        { title: "Avengers Endgame", image: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg", category: "popular" },
+        { title: "Spider-Man No Way Home", image: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg", category: "popular" },
+        { title: "Joker", image: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg", category: "popular" },
+        { title: "Black Panther", image: "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg", category: "popular" },
+        { title: "Dune", image: "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg", category: "popular" },
+        { title: "Guardians of the Galaxy Vol. 3", image: "https://image.tmdb.org/t/p/w500/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg", category: "popular" },
+        { title: "Doctor Strange", image: "https://image.tmdb.org/t/p/w500/4G6FNNLSIVrwSRZyFs91hQ3lZtD.jpg", category: "popular" },
+        { title: "Thor Love and Thunder", image: "https://image.tmdb.org/t/p/w500/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg", category: "popular" },
+        { title: "Black Panther Wakanda Forever", image: "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg", category: "popular" },
+        { title: "Ant-Man and the Wasp Quantumania", image: "https://image.tmdb.org/t/p/w500/qnqGbB22YJ7dSs4o6M7exTpNxPz.jpg", category: "popular" }
     ],
     topRated: [
-        { title: "The Shawshank Redemption", image: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "The Godfather", image: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "Schindler's List", image: "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "12 Angry Men", image: "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "The Green Mile", image: "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "Goodfellas", image: "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg", category: "topRated" },
-        { title: "Casablanca", image: "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_FMjpg_UX1000_.jpg", category: "topRated" }
+        { title: "The Shawshank Redemption", image: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", category: "topRated" },
+        { title: "The Godfather", image: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg", category: "topRated" },
+        { title: "The Godfather Part II", image: "https://image.tmdb.org/t/p/w500/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg", category: "topRated" },
+        { title: "Schindler's List", image: "https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg", category: "topRated" },
+        { title: "12 Angry Men", image: "https://image.tmdb.org/t/p/w500/ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg", category: "topRated" },
+        { title: "The Green Mile", image: "https://image.tmdb.org/t/p/w500/velWPhVMQeQKcxggNEU8YmIo52R.jpg", category: "topRated" },
+        { title: "Pulp Fiction", image: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg", category: "topRated" },
+        { title: "Forrest Gump", image: "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg", category: "topRated" },
+        { title: "Fight Club", image: "https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg", category: "topRated" },
+        { title: "The Lord of the Rings", image: "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg", category: "topRated" }
     ],
     action: [
-        { title: "Mad Max Fury Road", image: "https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "John Wick", image: "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "Die Hard", image: "https://m.media-amazon.com/images/M/MV5BZjRlNDUxZjAtOGQ4OC00OTNlLTgxNmQtYTBmMDgwZmNmNjkxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "Terminator 2", image: "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "Mission Impossible", image: "https://m.media-amazon.com/images/M/MV5BYzY2OWRlZTItZGJhNy00NjM4LWJlZjctYjQ5MWI0MjA0YjEzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "The Raid", image: "https://m.media-amazon.com/images/M/MV5BYzdhMDRlZGQtZmVjZC00ZWFhLWJjNzYtNzZjN2ZhMjI5NWY0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", category: "action" },
-        { title: "Gladiator", image: "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg", category: "action" }
+        { title: "Mad Max Fury Road", image: "https://image.tmdb.org/t/p/w500/hA2ple9q4qnwxp3hKVNhroipsir.jpg", category: "action" },
+        { title: "John Wick", image: "https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg", category: "action" },
+        { title: "Die Hard", image: "https://image.tmdb.org/t/p/w500/yFihWxQcmqcaBR31QM6Y8gT6aYV.jpg", category: "action" },
+        { title: "Terminator 2", image: "https://image.tmdb.org/t/p/w500/5M0j0B18abtBI5gi2RhfjjurTqb.jpg", category: "action" },
+        { title: "Mission Impossible Fallout", image: "https://image.tmdb.org/t/p/w500/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg", category: "action" },
+        { title: "The Raid", image: "https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRXdftq8.jpg", category: "action" },
+        { title: "Gladiator", image: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg", category: "action" },
+        { title: "The Bourne Ultimatum", image: "https://image.tmdb.org/t/p/w500/5aw4KYKFilYTKBJVcH3ySDJJ7Hn.jpg", category: "action" },
+        { title: "Casino Royale", image: "https://image.tmdb.org/t/p/w500/zlWBxz2pTA9p45kUThxiUrXhkdf.jpg", category: "action" },
+        { title: "Extraction", image: "https://image.tmdb.org/t/p/w500/wlfDxbGEsW58vGhFljKkcR5IxDj.jpg", category: "action" }
     ],
     comedy: [
-        { title: "The Grand Budapest Hotel", image: "https://m.media-amazon.com/images/M/MV5BMzM5NjUxOTEyMl5BMl5BanBnXkFtZTgwNjEyMDM0MDE@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "Superbad", image: "https://m.media-amazon.com/images/M/MV5BY2VkMDg4ZTYtN2M3Yy00NWZiLWE2ODEtZjU5MjZkYWNkNGIzXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "The Hangover", image: "https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "Bridesmaids", image: "https://m.media-amazon.com/images/M/MV5BMjAyOTMyMzUxNl5BMl5BanBnXkFtZTcwODI4MzE0NA@@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "Step Brothers", image: "https://m.media-amazon.com/images/M/MV5BODViZDg3ZjYtMzhiYS00YTVkLTk4MzktYjVkNjY0N2VmNWY0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "Anchorman", image: "https://m.media-amazon.com/images/M/MV5BMTQ2MzYwMzk5Ml5BMl5BanBnXkFtZTcwOTI4NzUyMw@@._V1_FMjpg_UX1000_.jpg", category: "comedy" },
-        { title: "Tropic Thunder", image: "https://m.media-amazon.com/images/M/MV5BNDE5MzQxNjc5N15BMl5BanBnXkFtZTcwODI4NzMzMw@@._V1_FMjpg_UX1000_.jpg", category: "comedy" }
+        { title: "The Grand Budapest Hotel", image: "https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg", category: "comedy" },
+        { title: "Superbad", image: "https://image.tmdb.org/t/p/w500/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg", category: "comedy" },
+        { title: "The Hangover", image: "https://image.tmdb.org/t/p/w500/uluhlXhjRbRs4YyPy0N9xVjCUXx.jpg", category: "comedy" },
+        { title: "Bridesmaids", image: "https://image.tmdb.org/t/p/w500/gJtA7hYsBMQ7EM3sPBMUdBfU7a0.jpg", category: "comedy" },
+        { title: "Step Brothers", image: "https://image.tmdb.org/t/p/w500/wRR62XHgEGGCbr6WKtb7Y4YuGpI.jpg", category: "comedy" },
+        { title: "Anchorman", image: "https://image.tmdb.org/t/p/w500/7f2CH2RvZZP6sTVe7Hhzfz0Aw0k.jpg", category: "comedy" },
+        { title: "Tropic Thunder", image: "https://image.tmdb.org/t/p/w500/zAurB9mNxfYRoVrVjAJJwGV3sPg.jpg", category: "comedy" },
+        { title: "21 Jump Street", image: "https://image.tmdb.org/t/p/w500/8v3Sqv9UcIUC4ebmpKWROqPBINZ.jpg", category: "comedy" },
+        { title: "The Other Guys", image: "https://image.tmdb.org/t/p/w500/wNEHwC36WkJWrHSxmPFnZeYdVxA.jpg", category: "comedy" },
+        { title: "Knives Out", image: "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg", category: "comedy" }
     ]
 };
 
-// Create movie card element
+// Default fallback poster image
+const DEFAULT_POSTER = "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png";
+
+// Create movie card element with fallback handling
 function createMovieCard(movie) {
     const card = document.createElement('div');
     card.className = 'movie-card';
@@ -57,6 +75,13 @@ function createMovieCard(movie) {
     img.alt = movie.title;
     img.className = 'movie-poster';
     img.loading = 'lazy';
+    
+    // Add error handling for images - fallback to default poster
+    img.onerror = function() {
+        console.warn(`Failed to load image for ${movie.title}, using fallback`);
+        this.onerror = null; // Prevent infinite loop
+        this.src = DEFAULT_POSTER;
+    };
     
     const titleDiv = document.createElement('div');
     titleDiv.className = 'movie-title';
@@ -71,6 +96,11 @@ function createMovieCard(movie) {
 // Populate movie rows
 function populateMovieRow(containerId, movies) {
     const container = document.getElementById(containerId);
+    
+    if (!container) {
+        console.error(`Container with id "${containerId}" not found`);
+        return;
+    }
     
     movies.forEach(movie => {
         const card = createMovieCard(movie);
@@ -91,6 +121,8 @@ function initializeMovieRows() {
 function handleNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     
+    if (!navbar) return;
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             navbar.classList.add('scrolled');
@@ -105,5 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMovieRows();
     handleNavbarScroll();
     
-    console.log('StreamFlix loaded successfully!');
+    console.log('StreamFlix loaded successfully with', 
+        Object.values(moviesData).reduce((sum, arr) => sum + arr.length, 0), 
+        'movies');
 });
