@@ -207,6 +207,10 @@
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .movie-card:hover {
@@ -214,10 +218,27 @@
             z-index: 10;
         }
 
+        .movie-card:nth-child(odd) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .movie-card:nth-child(3n) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .movie-card:nth-child(4n) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .movie-card:nth-child(5n) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
         .movie-poster {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: none;
         }
 
         .movie-title {
@@ -229,12 +250,11 @@
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             font-size: 14px;
             font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            text-align: center;
         }
 
         .movie-card:hover .movie-title {
-            opacity: 1;
+            background: rgba(0,0,0,0.8);
         }
 
         /* Responsive Design */
@@ -394,49 +414,49 @@
         // Movie Data
         const moviesData = {
             trending: [
-                { title: "The Dark Knight", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=The+Dark+Knight", category: "trending" },
-                { title: "Inception", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Inception", category: "trending" },
-                { title: "Interstellar", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Interstellar", category: "trending" },
-                { title: "The Matrix", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=The+Matrix", category: "trending" },
-                { title: "Pulp Fiction", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Pulp+Fiction", category: "trending" },
-                { title: "Fight Club", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Fight+Club", category: "trending" },
-                { title: "Forrest Gump", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Forrest+Gump", category: "trending" }
+                { title: "The Dark Knight", category: "trending" },
+                { title: "Inception", category: "trending" },
+                { title: "Interstellar", category: "trending" },
+                { title: "The Matrix", category: "trending" },
+                { title: "Pulp Fiction", category: "trending" },
+                { title: "Fight Club", category: "trending" },
+                { title: "Forrest Gump", category: "trending" }
             ],
             popular: [
-                { title: "Avengers Endgame", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Avengers", category: "popular" },
-                { title: "Spider-Man", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Spider-Man", category: "popular" },
-                { title: "Joker", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Joker", category: "popular" },
-                { title: "Black Panther", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Black+Panther", category: "popular" },
-                { title: "Dune", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Dune", category: "popular" },
-                { title: "Oppenheimer", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Oppenheimer", category: "popular" },
-                { title: "Barbie", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Barbie", category: "popular" }
+                { title: "Avengers Endgame", category: "popular" },
+                { title: "Spider-Man", category: "popular" },
+                { title: "Joker", category: "popular" },
+                { title: "Black Panther", category: "popular" },
+                { title: "Dune", category: "popular" },
+                { title: "Oppenheimer", category: "popular" },
+                { title: "Barbie", category: "popular" }
             ],
             topRated: [
-                { title: "The Shawshank Redemption", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Shawshank", category: "topRated" },
-                { title: "The Godfather", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Godfather", category: "topRated" },
-                { title: "Schindler's List", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Schindler", category: "topRated" },
-                { title: "12 Angry Men", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=12+Angry+Men", category: "topRated" },
-                { title: "The Green Mile", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Green+Mile", category: "topRated" },
-                { title: "Goodfellas", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Goodfellas", category: "topRated" },
-                { title: "Casablanca", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Casablanca", category: "topRated" }
+                { title: "The Shawshank Redemption", category: "topRated" },
+                { title: "The Godfather", category: "topRated" },
+                { title: "Schindler's List", category: "topRated" },
+                { title: "12 Angry Men", category: "topRated" },
+                { title: "The Green Mile", category: "topRated" },
+                { title: "Goodfellas", category: "topRated" },
+                { title: "Casablanca", category: "topRated" }
             ],
             action: [
-                { title: "Mad Max Fury Road", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Mad+Max", category: "action" },
-                { title: "John Wick", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=John+Wick", category: "action" },
-                { title: "Die Hard", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Die+Hard", category: "action" },
-                { title: "Terminator 2", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Terminator+2", category: "action" },
-                { title: "Mission Impossible", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Mission", category: "action" },
-                { title: "The Raid", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=The+Raid", category: "action" },
-                { title: "Gladiator", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Gladiator", category: "action" }
+                { title: "Mad Max Fury Road", category: "action" },
+                { title: "John Wick", category: "action" },
+                { title: "Die Hard", category: "action" },
+                { title: "Terminator 2", category: "action" },
+                { title: "Mission Impossible", category: "action" },
+                { title: "The Raid", category: "action" },
+                { title: "Gladiator", category: "action" }
             ],
             comedy: [
-                { title: "The Grand Budapest Hotel", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Budapest", category: "comedy" },
-                { title: "Superbad", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Superbad", category: "comedy" },
-                { title: "The Hangover", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Hangover", category: "comedy" },
-                { title: "Bridesmaids", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Bridesmaids", category: "comedy" },
-                { title: "Step Brothers", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Step+Brothers", category: "comedy" },
-                { title: "Anchorman", image: "https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Anchorman", category: "comedy" },
-                { title: "Tropic Thunder", image: "https://via.placeholder.com/400x600/2c2c2c/ffffff?text=Tropic", category: "comedy" }
+                { title: "The Grand Budapest Hotel", category: "comedy" },
+                { title: "Superbad", category: "comedy" },
+                { title: "The Hangover", category: "comedy" },
+                { title: "Bridesmaids", category: "comedy" },
+                { title: "Step Brothers", category: "comedy" },
+                { title: "Anchorman", category: "comedy" },
+                { title: "Tropic Thunder", category: "comedy" }
             ]
         };
 
@@ -445,17 +465,10 @@
             const card = document.createElement('div');
             card.className = 'movie-card';
             
-            const img = document.createElement('img');
-            img.src = movie.image;
-            img.alt = movie.title;
-            img.className = 'movie-poster';
-            img.loading = 'lazy';
-            
             const titleDiv = document.createElement('div');
             titleDiv.className = 'movie-title';
             titleDiv.textContent = movie.title;
             
-            card.appendChild(img);
             card.appendChild(titleDiv);
             
             return card;
